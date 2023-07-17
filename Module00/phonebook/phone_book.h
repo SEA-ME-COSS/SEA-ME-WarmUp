@@ -18,6 +18,7 @@ public:
 
 class Phonebook {
 private:
+    // make Contact info as vector
     std::vector<Contact> contacts;
     // key: std::string, value: int 
     std::map<std::string, int> phoneMap;

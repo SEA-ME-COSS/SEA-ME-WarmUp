@@ -15,7 +15,6 @@ Contact::Contact(std::string name, std::string phoneNumber, std::string nickname
     this->nickname = nickname;
     this->isBookmarked = isBookmarked;
 }
-
 */
 
 void Phonebook::add() {
@@ -23,12 +22,24 @@ void Phonebook::add() {
     std::cout << "Enter Name: ";
     std::cin.ignore();
     getline(std::cin, name);
+    // contact is reference in Contact
     for (const auto &contact : contacts) {
         if (contact.name == name) {
             std::cout << "A contact with this name already exists.\n";
             return;
         }
     }
+
+/*
+    std::cout << "Enter Phone number: ";
+    std::cin >> phoneNumber;
+    for (const auto &contact : contacts) {
+        if(contact.phoneNumber == phoneNumber) {
+            std::cout << "A contact with this phone number already exists.\n";
+            return;
+        }
+    }
+*/
 
     std::cout << "Enter Phone number: ";
     std::cin >> phoneNumber;
@@ -42,6 +53,8 @@ void Phonebook::add() {
         std::cout << "A contact with this phone number already exists.\n";
         return;
     }
+
+
 
     std::cout << "Enter Nickname: ";
     std::cin >> nickname;
