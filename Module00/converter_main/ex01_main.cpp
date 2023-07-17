@@ -10,10 +10,10 @@ int main(int argc, char* argv[]) {
 
     std::string action(argv[1]); // same as std::string action = argv[1];
     std::string input;
-    
+
     for (int i = 2; i < argc; ++i) {
         if (i > 2)
-            input += " ";
+            input += " "; // this makes spacing between words
         input += argv[i];
     }
 
