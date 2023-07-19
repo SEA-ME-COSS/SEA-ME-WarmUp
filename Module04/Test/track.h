@@ -14,5 +14,4 @@ private:
     std::vector<std::vector<int>> track_info;
 };
 
-
 #endif // TRACK_H

@@ -16,6 +16,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -28,6 +29,7 @@ public:
     QWidget *centralwidget;
     QLabel *CAR0;
     QLabel *CAR1;
+    QPushButton *pushButton;
     QMenuBar *menubar;
     QMenu *menuSetting;
     QStatusBar *statusbar;
@@ -56,6 +58,9 @@ public:
         CAR1->setStyleSheet(QString::fromUtf8("background-image: url();\n"
 "background-color : none;\n"
 "color : red;"));
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(10, 30, 100, 32));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -82,6 +87,7 @@ public:
         actionSTART->setText(QCoreApplication::translate("MainWindow", "START", nullptr));
         CAR0->setText(QCoreApplication::translate("MainWindow", "CAR0", nullptr));
         CAR1->setText(QCoreApplication::translate("MainWindow", "CAR1", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
         menuSetting->setTitle(QCoreApplication::translate("MainWindow", "Setting", nullptr));
     } // retranslateUi
 

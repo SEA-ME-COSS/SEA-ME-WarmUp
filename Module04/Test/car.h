@@ -27,15 +27,15 @@ public:
     float getSpeed();
     float getX();
     float getY();
-
-    float x;
-    float y;
-
+    void trackboom();
+    void moveX();
 signals:
     void positionChanged();
 
 private:
 //    Caution with Variable Type!!
+    float x;
+    float y;
     float angle;
     float speed;
     float changed_angle_in_this_period;

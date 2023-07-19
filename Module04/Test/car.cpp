@@ -1,7 +1,7 @@
 #include "car.h"
 #include <math.h>
 #include <QDebug>
-
+#include <iostream>
 const double rad2deg = 3.14159265358979/180;
 
 Car::Car()
@@ -112,4 +112,34 @@ float Car::getX()
 float Car::getY()
 {
     return y;
+}
+
+void Car::moveX()
+{
+    x -= 10;
+    y -= 10;
+}
+
+void Car::trackboom()
+{
+    if (angle>=0 && angle <= 90) {
+        x -= 1;
+        y -= 1;
+        angle += 90;
+    }
+    else if (angle > 90 && angle <= 180) {
+        x += 1;
+        y -= 1;
+        angle += 270;
+    }
+    else if (angle > 180 && angle <= 270) {
+        x += 1;
+        y += 1;
+        angle += 90;
+    }
+    else {
+        x -= 1;
+        y -= 1;
+        angle += 270;
+    }
 }

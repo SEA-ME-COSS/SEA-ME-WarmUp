@@ -8,6 +8,7 @@ CarThread::CarThread(Car *car) : car(car)
 void CarThread::keymapping(bool* key1, bool* key2, bool* key3, bool* key4)
 {
     Wkey = key1;
+
     Akey = key2;
     Skey = key3;
     Dkey = key4;

@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include <iostream>
 #include <QKeyEvent>
 #include <QDebug>
 
@@ -33,6 +33,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(test_game.m_timer, SIGNAL(timeout()), this, SLOT(gui_update()));
 
     connect(ui->actionSTART,  SIGNAL(triggered()), this, SLOT(start()));
+
+    connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(start()));
+
 }
 
 MainWindow::~MainWindow()
@@ -47,6 +50,9 @@ void MainWindow::start()
 
 void MainWindow::gui_update()
 {
+
+    trackCollision();
+
     for (int i=0; i<CAR_count; i++)
     {
         CAR_rot[i].rotate(-(test_game.carList[i]->getAngle()-CAR_ang[i]));
@@ -54,8 +60,6 @@ void MainWindow::gui_update()
         CAR_ptr[i]->setPixmap(CAR_img[i].transformed(CAR_rot[i]));
         CAR_ptr[i]->setGeometry(test_game.carList[i]->getX(),test_game.carList[i]->getY(),70,70);
     }
-
-    trackCollision();
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
@@ -128,27 +132,9 @@ void MainWindow::trackCollision()
 {
     for(int i = 0; i < CAR_count;i++)
     {
-        for(int j=0; j< Track_count; j++)
+        if(track.isPointin(test_game.carList[i]->getX(), test_game.carList[i]->getY()) == false)
         {
-            if(track.isPointin(test_game.carList[i]->x, test_game.carList[i]->y) == false)
-            {
-                int dx=0, dy=0;
-                int virtual_car_x = test_game.carList[i]->x;
-                int virtual_car_y = test_game.carList[i]->y;
-                while (dx*dx + dy*dy < 4* 7 * 7)
-                {
-                    test_game.carList[i]->x += dx/10.0;
-                    test_game.carList[i]->y += dy/10.0;
-                    virtual_car_x -= dx/10.0;
-                    virtual_car_y -= dy/10.0;
-                    dx = test_game.carList[i]->x - virtual_car_x;
-                    dy = test_game.carList[i]->y - virtual_car_y;
-                    if (!dx && !dy)
-                    {
-                        break;
-                    }
-                }
-            }
+            test_game.carList[i]->trackboom();
         }
     }
 }
