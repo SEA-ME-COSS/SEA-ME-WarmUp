@@ -6,8 +6,6 @@
 #include <QLabel>
 #include <vector>
 #include "game.h"
-#include "track.h"
-
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,17 +19,20 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     game test_game;
-    Track track;
     virtual void keyPressEvent(QKeyEvent *event) override;
     virtual void keyReleaseEvent(QKeyEvent *event) override;
-    void trackCollision();
     int CAR_count = 2;
-    int Track_count = 6;
     QLabel *CAR_ptr[2];
+
+    bool now_pause = true;
 
 public slots:
     void gui_update();
     void start();
+    void pause();
+    void resume();
+    void exit();
+    void raceover();
 
 private:
     float CAR_ang[2];

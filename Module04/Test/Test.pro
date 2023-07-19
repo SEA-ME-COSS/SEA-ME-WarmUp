@@ -20,15 +20,13 @@ SOURCES += \
     carthread.cpp \
     game.cpp \
     main.cpp \
-    mainwindow.cpp \
-    track.cpp
+    mainwindow.cpp
 
 HEADERS += \
     car.h \
     carthread.h \
     game.h \
-    mainwindow.h \
-    track.h
+    mainwindow.h
 
 FORMS += \
     mainwindow.ui

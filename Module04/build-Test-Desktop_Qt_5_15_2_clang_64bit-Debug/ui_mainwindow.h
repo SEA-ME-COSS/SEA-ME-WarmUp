@@ -26,9 +26,14 @@ class Ui_MainWindow
 {
 public:
     QAction *actionSTART;
+    QAction *actionPAUSE;
+    QAction *actionRESUME;
+    QAction *actionEXIT;
     QWidget *centralwidget;
     QLabel *CAR0;
     QLabel *CAR1;
+    QLabel *CAR2;
+    QLabel *CAR3;
     QPushButton *pushButton;
     QMenuBar *menubar;
     QMenu *menuSetting;
@@ -38,36 +43,54 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(576, 742);
-        MainWindow->setStyleSheet(QString::fromUtf8("background-image: url(:/images/images/bg.png);\n"
-"border: 0px "));
+        MainWindow->resize(576, 800);
+        MainWindow->setStyleSheet(QString::fromUtf8("background-image: url(:/images/images/bg2.png);\n"
+"border: 0px \n"
+""));
         MainWindow->setToolButtonStyle(Qt::ToolButtonIconOnly);
         actionSTART = new QAction(MainWindow);
         actionSTART->setObjectName(QString::fromUtf8("actionSTART"));
+        actionPAUSE = new QAction(MainWindow);
+        actionPAUSE->setObjectName(QString::fromUtf8("actionPAUSE"));
+        actionRESUME = new QAction(MainWindow);
+        actionRESUME->setObjectName(QString::fromUtf8("actionRESUME"));
+        actionEXIT = new QAction(MainWindow);
+        actionEXIT->setObjectName(QString::fromUtf8("actionEXIT"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         CAR0 = new QLabel(centralwidget);
         CAR0->setObjectName(QString::fromUtf8("CAR0"));
-        CAR0->setGeometry(QRect(45, 590, 13, 20));
+        CAR0->setGeometry(QRect(20, 580, 40, 70));
         CAR0->setStyleSheet(QString::fromUtf8("background-image: url();\n"
 "background-color : none;\n"
 "color : blue;"));
         CAR1 = new QLabel(centralwidget);
         CAR1->setObjectName(QString::fromUtf8("CAR1"));
-        CAR1->setGeometry(QRect(15, 590, 13, 20));
+        CAR1->setGeometry(QRect(50, 580, 40, 70));
         CAR1->setStyleSheet(QString::fromUtf8("background-image: url();\n"
 "background-color : none;\n"
 "color : red;"));
+        CAR2 = new QLabel(centralwidget);
+        CAR2->setObjectName(QString::fromUtf8("CAR2"));
+        CAR2->setGeometry(QRect(100, 730, 40, 70));
+        CAR2->setStyleSheet(QString::fromUtf8("background-image: url();\n"
+"background-color : none;\n"
+"color : green;"));
+        CAR3 = new QLabel(centralwidget);
+        CAR3->setObjectName(QString::fromUtf8("CAR3"));
+        CAR3->setGeometry(QRect(190, 740, 40, 70));
+        CAR3->setStyleSheet(QString::fromUtf8("background-image: url();\n"
+"background-color : none;\n"
+"color : yellow;"));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(10, 30, 100, 32));
+        pushButton->setGeometry(QRect(30, 10, 100, 32));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 576, 21));
         menuSetting = new QMenu(menubar);
         menuSetting->setObjectName(QString::fromUtf8("menuSetting"));
-        menuSetting->setGeometry(QRect(50, 50, 119, 62));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -75,6 +98,9 @@ public:
 
         menubar->addAction(menuSetting->menuAction());
         menuSetting->addAction(actionSTART);
+        menuSetting->addAction(actionPAUSE);
+        menuSetting->addAction(actionRESUME);
+        menuSetting->addAction(actionEXIT);
 
         retranslateUi(MainWindow);
 
@@ -85,9 +111,14 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         actionSTART->setText(QCoreApplication::translate("MainWindow", "START", nullptr));
+        actionPAUSE->setText(QCoreApplication::translate("MainWindow", "PAUSE", nullptr));
+        actionRESUME->setText(QCoreApplication::translate("MainWindow", "RESUME", nullptr));
+        actionEXIT->setText(QCoreApplication::translate("MainWindow", "EXIT", nullptr));
         CAR0->setText(QCoreApplication::translate("MainWindow", "CAR0", nullptr));
         CAR1->setText(QCoreApplication::translate("MainWindow", "CAR1", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        CAR2->setText(QCoreApplication::translate("MainWindow", "CAR2", nullptr));
+        CAR3->setText(QCoreApplication::translate("MainWindow", "CAR3", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "Start", nullptr));
         menuSetting->setTitle(QCoreApplication::translate("MainWindow", "Setting", nullptr));
     } // retranslateUi
 

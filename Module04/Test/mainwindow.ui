@@ -7,15 +7,16 @@
     <x>0</x>
     <y>0</y>
     <width>576</width>
-    <height>742</height>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/images/images/bg.png);
-border: 0px </string>
+   <string notr="true">background-image: url(:/images/images/bg2.png);
+border: 0px 
+</string>
   </property>
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonIconOnly</enum>
@@ -24,10 +25,10 @@ border: 0px </string>
    <widget class="QLabel" name="CAR0">
     <property name="geometry">
      <rect>
-      <x>45</x>
-      <y>590</y>
-      <width>13</width>
-      <height>20</height>
+      <x>20</x>
+      <y>580</y>
+      <width>40</width>
+      <height>70</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -42,10 +43,10 @@ color : blue;</string>
    <widget class="QLabel" name="CAR1">
     <property name="geometry">
      <rect>
-      <x>15</x>
-      <y>590</y>
-      <width>13</width>
-      <height>20</height>
+      <x>50</x>
+      <y>580</y>
+      <width>40</width>
+      <height>70</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -57,17 +58,53 @@ color : red;</string>
      <string>CAR1</string>
     </property>
    </widget>
+   <widget class="QLabel" name="CAR2">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>730</y>
+      <width>40</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url();
+background-color : none;
+color : green;</string>
+    </property>
+    <property name="text">
+     <string>CAR2</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="CAR3">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>740</y>
+      <width>40</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url();
+background-color : none;
+color : yellow;</string>
+    </property>
+    <property name="text">
+     <string>CAR3</string>
+    </property>
+   </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>30</y>
+      <x>30</x>
+      <y>10</y>
       <width>100</width>
       <height>32</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Start</string>
     </property>
    </widget>
   </widget>
@@ -81,18 +118,13 @@ color : red;</string>
     </rect>
    </property>
    <widget class="QMenu" name="menuSetting">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>50</y>
-      <width>119</width>
-      <height>62</height>
-     </rect>
-    </property>
     <property name="title">
      <string>Setting</string>
     </property>
     <addaction name="actionSTART"/>
+    <addaction name="actionPAUSE"/>
+    <addaction name="actionRESUME"/>
+    <addaction name="actionEXIT"/>
    </widget>
    <addaction name="menuSetting"/>
   </widget>
@@ -100,6 +132,21 @@ color : red;</string>
   <action name="actionSTART">
    <property name="text">
     <string>START</string>
+   </property>
+  </action>
+  <action name="actionPAUSE">
+   <property name="text">
+    <string>PAUSE</string>
+   </property>
+  </action>
+  <action name="actionRESUME">
+   <property name="text">
+    <string>RESUME</string>
+   </property>
+  </action>
+  <action name="actionEXIT">
+   <property name="text">
+    <string>EXIT</string>
    </property>
   </action>
  </widget>

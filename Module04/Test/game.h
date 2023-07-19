@@ -16,15 +16,14 @@ class game : public QGraphicsScene
 public:
     game();
     QTimer* m_timer;
-//    Car car[2];
     QList<Car*> carList;
     QList<QThread*> threadList;
-    bool keys[2][4] = {false};
+    bool keys[4][4] = {false};
 
 public:
     void startRace();
-//    void pauseRace();
-//    void exitRace();
+    void pauseRace();
+    void resumeRace();
 };
 
 #endif // GAME_H
